@@ -3,6 +3,7 @@
 Inspired by https://github.com/lu4242/performance-comparison-java-web-frameworks
 
 I took the JSF application, ported it to CDI and created profiles for MyFaces2.3, MyFaces3.0 and Mojarra 2.3.
+The JMeter config is preconfigured for 100 threads and 200 loops.
 
 NOTE:
 MyFaces and Mojarra are both configured for better performance. It doesn't not test stateless view, also not MyFaces ViewPooling. There should not be a big difference.
