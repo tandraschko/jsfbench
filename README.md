@@ -4,6 +4,14 @@ Inspired by https://github.com/lu4242/performance-comparison-java-web-frameworks
 
 I took the JSF application and ported it to CDI and created profiles for MyFaces2.3, MyFaces3.0 and Mojarra 2.3.
 
+## Results 12-03-2019
+
+|            | Mojarra 2.3 | MyFaces 2.3 | MyFaces 3.0 |
+| Average    |        15ms |         8ms |         8ms |
+| 90 % Line  |        23ms |        13ms |        12ms |
+| Throughput |  2416.9/sec |  3001.6/sec |  3008.7/sec |
+
+
 ## How to run it? 
 
 Currently only tested on JDK 8.
@@ -29,3 +37,5 @@ Currently only tested on JDK 8.
 6) run it once for a warmup
 7) clean the results
 8) run again and see the results under Test Plan/Thread Group/Aggregate Grapp
+
+
