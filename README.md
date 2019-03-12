@@ -7,6 +7,7 @@ I took the JSF application and ported it to CDI and created profiles for MyFaces
 ## Results 12-03-2019
 
 |            | Mojarra 2.3 | MyFaces 2.3 | MyFaces 3.0 |
+| --- | --- | --- | --- |
 | Average    |        15ms |         8ms |         8ms |
 | 90 % Line  |        23ms |        13ms |        12ms |
 | Throughput |  2416.9/sec |  3001.6/sec |  3008.7/sec |
