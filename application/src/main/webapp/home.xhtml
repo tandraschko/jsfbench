@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>JBoss Suites: JSF 2 Framework</title>
+  <link href="css/screen.css" rel="stylesheet" type="text/css" />
+</h:head>
+<h:body id="pgHome">
+<div id="document">
+  <div id="header">
+    <div id="title"><img src="img/hdr.title.gif" alt="JBoss Suites: JSF 2 framework demo"/></div>
+  </div>
+  <div id="container">
+    <div id="sidebar">
+      <h:form id="login">
+        <fieldset>
+          <div>
+            <h:outputLabel id="UsernameLabel" for="username">Login Name</h:outputLabel>
+            <h:inputText id="username" value="#{authenticator.user.username}" style="width: 175px;">
+              <f:validateBean disabled="true"/>
+            </h:inputText>
+            <div class="errors"><h:message id="message" for="username"/></div>
+          </div>
+          <div>
+            <h:outputLabel id="PasswordLabel" for="password">Password</h:outputLabel>
+            <h:inputSecret id="password" value="#{authenticator.user.password}" style="width: 175px;">
+                <f:validateBean disabled="true"/>
+            </h:inputSecret>
+          </div>
+          <div class="errors"><h:messages id="messages" globalOnly="true"/></div>
+          <div class="buttonBox"><h:commandButton id="login" action="#{authenticator.authenticate}" value="Account Login"/></div>
+          <div class="notes"><h:link id="register" outcome="register" value="Register New User"/></div>
+          <div class="subnotes">
+            Or use a demo account:
+            <ul>
+              <li>gavin/foobar</li>
+              <li>demo/demo</li>
+            </ul>
+          </div>
+        </fieldset>
+      </h:form>
+    </div>
+  </div>
+  <div id="footer">Created with JBoss EJB 3.0, Seam, JSF (Mojarra), and Facelets</div>
+</div>
+</h:body>
+</html>

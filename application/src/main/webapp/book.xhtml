@@ -1,0 +1,159 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="template.xhtml">
+<ui:define name="content">
+<div class="section">
+  <h1>Book Hotel</h1>
+</div>
+<div class="section">
+  <h:form id="booking">
+  <fieldset>
+    <div class="entry">
+        <div class="label">Name:</div>
+        <div class="output">#{hotelBooking.booking.hotel.name}</div>
+    </div>
+    <div class="entry">
+        <div class="label">Address:</div>
+        <div class="output">#{hotelBooking.booking.hotel.address}</div>
+    </div>
+    <div class="entry">
+        <div class="label">City, State:</div>
+        <div class="output">#{hotelBooking.booking.hotel.city}, #{hotelBooking.booking.hotel.state}</div>
+    </div>
+    <div class="entry">
+        <div class="label">Zip:</div>
+        <div class="output">#{hotelBooking.booking.hotel.zip}</div>
+    </div>
+    <div class="entry">
+        <div class="label">Country:</div>
+        <div class="output">#{hotelBooking.booking.hotel.country}</div>
+    </div>
+    <div class="entry">
+        <div class="label">Nightly rate:</div>
+        <div class="output">
+            <h:outputText value="#{hotelBooking.booking.hotel.price}">
+                <f:convertNumber type="currency" currencySymbol="$"/>
+            </h:outputText>
+        </div>
+    </div>      
+    <f:validateBean>
+      <div class="entry">
+        <div class="label"><h:outputLabel id="CheckinDateLabel" for="checkinDate">Check In Date:</h:outputLabel></div>
+        <div class="input">
+          <h:panelGroup>
+            <h:inputText id="checkinDate" value="#{hotelBooking.booking.checkinDate}" required="true" style="width: auto;">
+              <f:convertDateTime pattern="MM/dd/yyyy"/>
+              <f:ajax event="blur" render="checkinDateDecorate"/>
+            </h:inputText>
+
+            <h:panelGroup id="checkinDateDecorate" layout="block">
+              <h:message for="checkinDate" errorClass="errors"/>
+            </h:panelGroup>
+          </h:panelGroup>
+        </div>
+      </div>          
+      <div class="entry">
+        <div class="label"><h:outputLabel id="CheckoutDateLabel" for="checkoutDate">Check Out Date:</h:outputLabel></div>
+        <div class="input">
+          <h:panelGroup>
+            <h:inputText id="checkoutDate" value="#{hotelBooking.booking.checkoutDate}" required="true" style="width: auto;">
+              <f:convertDateTime pattern="MM/dd/yyyy"/>
+              <f:ajax event="blur" render="checkoutDateDecorate"/>
+            </h:inputText>
+            <h:panelGroup id="checkoutDateDecorate" layout="block">
+              <h:message for="checkoutDate" errorClass="errors"/>
+            </h:panelGroup>
+          </h:panelGroup>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="label"><h:outputLabel id="RoomPrefLabel" for="beds">Room Preference:</h:outputLabel></div>
+        <div class="input">
+          <h:panelGroup id="bedsDecorate">
+            <h:selectOneMenu id="beds" value="#{hotelBooking.booking.beds}">
+              <f:selectItem id="OneKingBed" itemLabel="One king-size bed" itemValue="1"/>
+              <f:selectItem id="TwoDoubleBeds" itemLabel="Two double beds" itemValue="2"/>
+              <f:selectItem id="ThreeBeds" itemLabel="Three beds" itemValue="3"/>
+            </h:selectOneMenu>
+            <h:panelGroup layout="block">
+              <h:message for="beds" errorClass="errors"/>
+            </h:panelGroup>
+          </h:panelGroup>
+        </div>
+      </div>          
+      <div class="entry">
+        <div class="label"><h:outputLabel id="SmokingPrefLabel" for="smoking">Smoking Preference:</h:outputLabel></div>
+        <div id="radio" class="input">
+          <h:panelGroup id="smokingDecorate">
+            <h:selectOneRadio id="smoking" value="#{hotelBooking.booking.smoking}" layout="pageDirection">
+              <f:selectItem id="Smoking" itemLabel="Smoking" itemValue="true"/>
+              <f:selectItem id="NonSmoking" itemLabel="Non Smoking" itemValue="false"/>
+            </h:selectOneRadio>
+            <h:panelGroup layout="block">
+              <h:message for="smoking" errorClass="errors"/>
+            </h:panelGroup>
+          </h:panelGroup>
+        </div>
+      </div>          
+      <div class="entry">
+        <div class="label"><h:outputLabel id="CreditCardLabel" for="creditCard">Credit Card #:</h:outputLabel></div>
+        <div class="input">
+          <h:panelGroup>
+            <h:inputText id="creditCard" value="#{hotelBooking.booking.creditCard}" required="true">
+              <f:ajax event="blur" render="creditCardDecorate"/>
+            </h:inputText>
+            <h:panelGroup id="creditCardDecorate" layout="block">
+              <h:message for="creditCard" errorClass="errors"/>
+            </h:panelGroup>
+          </h:panelGroup>
+        </div>
+      </div>          
+      <div class="entry">
+        <div class="label"><h:outputLabel id="CreditCardNameLabel" for="creditCardName">Credit Card Name:</h:outputLabel></div>
+        <div class="input">
+          <h:panelGroup>
+            <h:inputText id="creditCardName" value="#{hotelBooking.booking.creditCardName}" required="true">
+              <f:ajax event="blur" render="creditCardNameDecorate"/>
+            </h:inputText>
+            <h:panelGroup id="creditCardNameDecorate" layout="block">
+              <h:message for="creditCardName" errorClass="errors"/>
+            </h:panelGroup>
+          </h:panelGroup>
+        </div>
+      </div>          
+      <div class="entry">
+        <div class="label"><h:outputLabel for="creditCardExpiryMonth">Credit Card Expiry:</h:outputLabel></div>
+        <div class="input">
+          <h:panelGroup id="CreditCardExpiryDecorate">
+            <h:selectOneMenu id="creditCardExpiryMonth" value="#{hotelBooking.booking.creditCardExpiryMonth}">
+              <f:selectItems value="#{bookingApplication.months}"/>
+            </h:selectOneMenu>
+            <h:selectOneMenu id="creditCardExpiryYear" value="#{hotelBooking.booking.creditCardExpiryYear}">
+                <f:selectItems value="#{bookingApplication.years}"/>
+            </h:selectOneMenu>
+            <h:panelGroup layout="block">
+              <h:message for="creditCardExpiryMonth" errorClass="errors"/>
+            </h:panelGroup>
+          </h:panelGroup>
+        </div>
+      </div>
+    </f:validateBean>
+    <div class="entry errors">
+      <h:messages id="messages" globalOnly="true"/>
+    </div>      
+    <div class="entry">
+      <div class="label"></div>
+      <div class="input">
+        <h:commandButton id="proceed" value="Proceed" action="#{hotelBooking.setBookingDetails}"/>&#160;
+        <h:commandButton id="cancel" value="Cancel" action="#{hotelBooking.cancel}"/>
+      </div>
+    </div>      
+  </fieldset>
+  </h:form>
+</div>
+</ui:define>
+
+</ui:composition>

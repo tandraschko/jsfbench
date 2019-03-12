@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>debug</actionName>
+            <goals>
+                <goal>clean</goal>
+                <goal>package</goal>
+                <goal>jetty:run-exploded</goal>
+            </goals>
+            <properties>
+                <skipTests>true</skipTests>
+                <jpda.listen>maven</jpda.listen>
+            </properties>
+            <activatedProfiles>
+                <activatedProfile>myfaces-23</activatedProfile>
+            </activatedProfiles>
+        </action>
+        <action>
+            <actionName>run</actionName>
+            <goals>
+                <goal>clean</goal>
+                <goal>package</goal>
+                <goal>jetty:run-exploded</goal>
+            </goals>
+            <properties>
+                <skipTests>true</skipTests>
+            </properties>
+            <activatedProfiles>
+                <activatedProfile>myfaces-23</activatedProfile>
+            </activatedProfiles>
+        </action>
+    </actions>
