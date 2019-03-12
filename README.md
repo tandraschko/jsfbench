@@ -6,6 +6,7 @@ I took the JSF application, ported it to CDI and created profiles for MyFaces 2.
 The JMeter config is preconfigured for 100 threads and 200 loops.
 
 Its also quite interessting compared to another case (http://tandraschko.blogspot.com/2019/03/way-to-myfaces-30.html), where the results of Mojarra 2.3 and MyFaces 2.3 were almost the same and MyFaces 3.0 was ~15% faster as both Mojarra 2.3 and MyFaces 2.3.
+The big difference is that this benchmark simulates a real-world application with Hibernate and a bit business logic.
 
 NOTE:
 MyFaces and Mojarra are both configured for better performance. It does not test stateless view or MyFaces ViewPooling. There should not be a big difference.
