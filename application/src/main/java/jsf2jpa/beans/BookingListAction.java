@@ -41,6 +41,10 @@ public class BookingListAction implements Serializable {
     }    
 
     public void cancel(Booking booking) {
+        if (booking == null)
+        {
+            return;   
+        }
         if (BookingApplication.LOG_ENABLED)
         {
             log.info("Cancel booking: "+booking.getId()+" for "+booking.getUser().getUsername());
