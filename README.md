@@ -26,8 +26,7 @@ Currently only tested on JDK 8.
 ### Configure Tomcat
 1) download Tomcat 9.0.16+
 2) extract it 3 times (tomcat-myfaces-23, tomcat-myfaces-30, tomcat-mojarra-23)
-3) copy the configs from ./tomcat/conf to all 3 instances
-   The configs disables autoDeployment, accessLogValve and session persistence
+3) copy the configs from ./tomcat/conf to all 3 instances, which disables autoDeployment, accessLogValve and session persistence
 
 ### Build the application
 1) go the ./application
